@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>赤兔实时计算平台</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    <link rel="icon" href="/logo/small.png">
+    <script>
+  if(window.location.host.indexOf('localhost') < 0) {
+    var appKey = 'r336dqylqlyt6aqotj8u0771';
+    var logUrl = 'kye-log-sdk.ky-express.com';
+    var jsUrl = 'https://bg-prd-cos-bdp-1257092428.cos.ap-guangzhou.myqcloud.com/bigdata/kyelog/aplus_web_v9_md5_c1f7.js';
+    
+    (function (w, d, s, q) {
+    w[q] = w[q] || [];
+    var f = d.getElementsByTagName(s)[0], j = d.createElement(s);
+    j.async = true;
+    j.id = 'beacon-aplus';
+    j.src = jsUrl;
+    f.parentNode.insertBefore(j, f)
+    })(window, document, 'script', 'aplus_queue')
+    //集成应用的appKey
+    aplus_queue.push({ action: 'aplus.setMetaInfo', arguments: ['appKey', appKey] })
+    //如果是私有云部署还需要在上面那段JS后面紧接着添加日志域名埋点
+    //通常私有云日志服务端域名类似于：quickaplus-web-api.xxx.com.cn, 具体域名要找交付同学要
+    aplus_queue.push({ action: 'aplus.setMetaInfo', arguments: ['aplus-rhost-v', logUrl] })
+    aplus_queue.push({ action: 'aplus.setMetaInfo', arguments: ['DEBUG', true] })
+    //开启全埋点
+    aplus_queue.push({
+    action: 'aplus.setMetaInfo',
+    arguments: ['aplus-autotrack-enabled', true]
+    });
+    // 全埋点配置
+    aplus_queue.push({
+    action: 'aplus.setMetaInfo',
+    arguments: [
+      'aplus-autotrack-config',
+      {
+        collect_tags: {
+          li: true,
+          img: true,
+          div: true,
+          span: true,
+          i: true,
+          svg: true,
+          path: true,
+          p: true,
+          td: true
+        },
+        collect_input: true, // 采集input框输入内容
+        element_capture_enable: true // 全埋点控件点击支持事件捕获模式，默认为冒泡模式，值为false
+      }
+    ]
+    })
+    //apm
+    void (function (e, t, n, a, o, i, m) {
+    (e._um_apm_namespace = o),
+      (e[o] =
+        e[o] ||
+        function () {
+          (e[o].q = e[o].q || []).push(arguments);
+        }),
+      (e[o].l = e[o].l || +new Date()),
+      (i = t.createElement(n)),
+      i.setAttribute('crossorigin', ''),
+      (i.src = a),
+      (m = t.getElementsByTagName(n)[0]),
+      m.parentNode.insertBefore(i, m);
+    })(window, document, "script", "https://bg-prd-cos-bdp-1257092428.cos.ap-guangzhou.myqcloud.com/bigdata/kyelog/apm_v2_md5_1b26.js", "_apm");
+    _apm('create', {
+    pid: appKey,
+    dsn: 'https://' + logUrl,
+    pageFilter: { mode: 'ignore', rules: [] },
+    });
+  }
+ </script>
+    <meta name="description" content="赤兔实时计算平台是大数据产品生态体系的实时化分析利器，是基于 Apache Flink 构建的具备一站开发、无缝连接、亚秒延时、低廉成本、安全稳定等特点的企业级实时大数据计算平台。平台提供SQL化IDE开发环境，任务运维发布流程，任务监控体系，多环境隔离转环境支持，多集群管理等多种企业级特性支持，帮助企业加速进行实时应用开发与实践, 加快实时化数字化的建设进程。">
+    <meta name="keywords" content="chitu-sdp,chitu-sdp-flink,chitu-sdp-provider,赤兔实时计算,赤兔实时计算文档">
+    <meta name="theme-color" content="#11a8cd">
+    <meta name="viewport" content="width=device-width,initial-sacle=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
+    
+    <link rel="preload" href="/assets/css/0.styles.eb8041ce.css" as="style"><link rel="preload" href="/assets/js/app.14ccb522.js" as="script"><link rel="preload" href="/assets/js/5.245d6ccc.js" as="script"><link rel="prefetch" href="/assets/js/10.57027684.js"><link rel="prefetch" href="/assets/js/11.7c227400.js"><link rel="prefetch" href="/assets/js/12.4a1ae251.js"><link rel="prefetch" href="/assets/js/13.7ed105b5.js"><link rel="prefetch" href="/assets/js/14.40c985fa.js"><link rel="prefetch" href="/assets/js/15.ecc31e56.js"><link rel="prefetch" href="/assets/js/16.94d7547d.js"><link rel="prefetch" href="/assets/js/17.2999f2da.js"><link rel="prefetch" href="/assets/js/18.6087cb46.js"><link rel="prefetch" href="/assets/js/19.ef03d88b.js"><link rel="prefetch" href="/assets/js/2.24ca2cad.js"><link rel="prefetch" href="/assets/js/20.a2f07415.js"><link rel="prefetch" href="/assets/js/21.55ae073c.js"><link rel="prefetch" href="/assets/js/22.742c2683.js"><link rel="prefetch" href="/assets/js/23.ea29b97b.js"><link rel="prefetch" href="/assets/js/24.247c6f02.js"><link rel="prefetch" href="/assets/js/25.471decef.js"><link rel="prefetch" href="/assets/js/26.aea1d6df.js"><link rel="prefetch" href="/assets/js/27.41ead25d.js"><link rel="prefetch" href="/assets/js/28.8e5c837f.js"><link rel="prefetch" href="/assets/js/29.9d66d366.js"><link rel="prefetch" href="/assets/js/3.f609e95a.js"><link rel="prefetch" href="/assets/js/30.fd4b127f.js"><link rel="prefetch" href="/assets/js/31.3e5abe6b.js"><link rel="prefetch" href="/assets/js/32.fd952816.js"><link rel="prefetch" href="/assets/js/4.2cd2aecb.js"><link rel="prefetch" href="/assets/js/6.782f9449.js"><link rel="prefetch" href="/assets/js/7.26cec53d.js"><link rel="prefetch" href="/assets/js/8.4d3edb0a.js"><link rel="prefetch" href="/assets/js/9.dc5c466f.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.eb8041ce.css">
+  </head>
+  <body class="theme-mode-light">
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-439bb2a8><div class="theme-vdoing-content" data-v-439bb2a8><span data-v-439bb2a8>404</span> <blockquote data-v-439bb2a8>看来我们的链接坏掉了~</blockquote> <a href="/" class="router-link-active" data-v-439bb2a8>返回首页</a></div></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.14ccb522.js" defer></script><script src="/assets/js/5.245d6ccc.js" defer></script>
+  </body>
+</html>

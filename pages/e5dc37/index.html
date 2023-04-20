@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>本地开发环境搭建 | 赤兔实时计算平台</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    <link rel="icon" href="/logo/small.png">
+    <script>
+  if(window.location.host.indexOf('localhost') < 0) {
+    var appKey = 'r336dqylqlyt6aqotj8u0771';
+    var logUrl = 'kye-log-sdk.ky-express.com';
+    var jsUrl = 'https://bg-prd-cos-bdp-1257092428.cos.ap-guangzhou.myqcloud.com/bigdata/kyelog/aplus_web_v9_md5_c1f7.js';
+    
+    (function (w, d, s, q) {
+    w[q] = w[q] || [];
+    var f = d.getElementsByTagName(s)[0], j = d.createElement(s);
+    j.async = true;
+    j.id = 'beacon-aplus';
+    j.src = jsUrl;
+    f.parentNode.insertBefore(j, f)
+    })(window, document, 'script', 'aplus_queue')
+    //集成应用的appKey
+    aplus_queue.push({ action: 'aplus.setMetaInfo', arguments: ['appKey', appKey] })
+    //如果是私有云部署还需要在上面那段JS后面紧接着添加日志域名埋点
+    //通常私有云日志服务端域名类似于：quickaplus-web-api.xxx.com.cn, 具体域名要找交付同学要
+    aplus_queue.push({ action: 'aplus.setMetaInfo', arguments: ['aplus-rhost-v', logUrl] })
+    aplus_queue.push({ action: 'aplus.setMetaInfo', arguments: ['DEBUG', true] })
+    //开启全埋点
+    aplus_queue.push({
+    action: 'aplus.setMetaInfo',
+    arguments: ['aplus-autotrack-enabled', true]
+    });
+    // 全埋点配置
+    aplus_queue.push({
+    action: 'aplus.setMetaInfo',
+    arguments: [
+      'aplus-autotrack-config',
+      {
+        collect_tags: {
+          li: true,
+          img: true,
+          div: true,
+          span: true,
+          i: true,
+          svg: true,
+          path: true,
+          p: true,
+          td: true
+        },
+        collect_input: true, // 采集input框输入内容
+        element_capture_enable: true // 全埋点控件点击支持事件捕获模式，默认为冒泡模式，值为false
+      }
+    ]
+    })
+    //apm
+    void (function (e, t, n, a, o, i, m) {
+    (e._um_apm_namespace = o),
+      (e[o] =
+        e[o] ||
+        function () {
+          (e[o].q = e[o].q || []).push(arguments);
+        }),
+      (e[o].l = e[o].l || +new Date()),
+      (i = t.createElement(n)),
+      i.setAttribute('crossorigin', ''),
+      (i.src = a),
+      (m = t.getElementsByTagName(n)[0]),
+      m.parentNode.insertBefore(i, m);
+    })(window, document, "script", "https://bg-prd-cos-bdp-1257092428.cos.ap-guangzhou.myqcloud.com/bigdata/kyelog/apm_v2_md5_1b26.js", "_apm");
+    _apm('create', {
+    pid: appKey,
+    dsn: 'https://' + logUrl,
+    pageFilter: { mode: 'ignore', rules: [] },
+    });
+  }
+ </script>
+    <meta name="description" content="赤兔实时计算平台是大数据产品生态体系的实时化分析利器，是基于 Apache Flink 构建的具备一站开发、无缝连接、亚秒延时、低廉成本、安全稳定等特点的企业级实时大数据计算平台。平台提供SQL化IDE开发环境，任务运维发布流程，任务监控体系，多环境隔离转环境支持，多集群管理等多种企业级特性支持，帮助企业加速进行实时应用开发与实践, 加快实时化数字化的建设进程。">
+    <meta name="keywords" content="chitu-sdp,chitu-sdp-flink,chitu-sdp-provider,赤兔实时计算,赤兔实时计算文档">
+    <meta name="theme-color" content="#11a8cd">
+    <meta name="viewport" content="width=device-width,initial-sacle=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
+    
+    <link rel="preload" href="/assets/css/0.styles.eb8041ce.css" as="style"><link rel="preload" href="/assets/js/app.14ccb522.js" as="script"><link rel="preload" href="/assets/js/2.24ca2cad.js" as="script"><link rel="preload" href="/assets/js/27.41ead25d.js" as="script"><link rel="prefetch" href="/assets/js/10.57027684.js"><link rel="prefetch" href="/assets/js/11.7c227400.js"><link rel="prefetch" href="/assets/js/12.4a1ae251.js"><link rel="prefetch" href="/assets/js/13.7ed105b5.js"><link rel="prefetch" href="/assets/js/14.40c985fa.js"><link rel="prefetch" href="/assets/js/15.ecc31e56.js"><link rel="prefetch" href="/assets/js/16.94d7547d.js"><link rel="prefetch" href="/assets/js/17.2999f2da.js"><link rel="prefetch" href="/assets/js/18.6087cb46.js"><link rel="prefetch" href="/assets/js/19.ef03d88b.js"><link rel="prefetch" href="/assets/js/20.a2f07415.js"><link rel="prefetch" href="/assets/js/21.55ae073c.js"><link rel="prefetch" href="/assets/js/22.742c2683.js"><link rel="prefetch" href="/assets/js/23.ea29b97b.js"><link rel="prefetch" href="/assets/js/24.247c6f02.js"><link rel="prefetch" href="/assets/js/25.471decef.js"><link rel="prefetch" href="/assets/js/26.aea1d6df.js"><link rel="prefetch" href="/assets/js/28.8e5c837f.js"><link rel="prefetch" href="/assets/js/29.9d66d366.js"><link rel="prefetch" href="/assets/js/3.f609e95a.js"><link rel="prefetch" href="/assets/js/30.fd4b127f.js"><link rel="prefetch" href="/assets/js/31.3e5abe6b.js"><link rel="prefetch" href="/assets/js/32.fd952816.js"><link rel="prefetch" href="/assets/js/4.2cd2aecb.js"><link rel="prefetch" href="/assets/js/5.245d6ccc.js"><link rel="prefetch" href="/assets/js/6.782f9449.js"><link rel="prefetch" href="/assets/js/7.26cec53d.js"><link rel="prefetch" href="/assets/js/8.4d3edb0a.js"><link rel="prefetch" href="/assets/js/9.dc5c466f.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.eb8041ce.css">
+  </head>
+  <body class="theme-mode-light">
+    <div id="app" data-server-rendered="true"><div class="theme-container sidebar-open have-rightmenu"><header class="navbar blur"><div title="目录" class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/image/nav-logo.png" alt="赤兔实时计算平台" class="logo"> <span class="site-name can-hide">赤兔实时计算平台</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="文档" class="dropdown-title"><a href="/pages/69fb10/" class="link-title">文档</a> <span class="title" style="display:none;">文档</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/69fb10/" class="nav-link">产品简介</a></li><li class="dropdown-item"><!----> <a href="/pages/58ae2f/" class="nav-link">快速入门</a></li><li class="dropdown-item"><!----> <a href="/pages/3afb01/" class="nav-link">安装部署</a></li><li class="dropdown-item"><!----> <a href="/pages/8f1364/" class="nav-link">用户手册</a></li><li class="dropdown-item"><!----> <a href="/pages/e5dc37/" aria-current="page" class="nav-link router-link-exact-active router-link-active">开发手册</a></li><li class="dropdown-item"><!----> <a href="/pages/794c63/" class="nav-link">联系我们</a></li></ul></div></div><div class="nav-item"><a href="https://github.com/galaxy-data-cn/chitu-sdp/issues" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  FAQ
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><a href="https://github.com/galaxy-data-cn/chitu-sdp" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar-hover-trigger"></div> <aside class="sidebar" style="display:none;"><!----> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="文档" class="dropdown-title"><a href="/pages/69fb10/" class="link-title">文档</a> <span class="title" style="display:none;">文档</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/69fb10/" class="nav-link">产品简介</a></li><li class="dropdown-item"><!----> <a href="/pages/58ae2f/" class="nav-link">快速入门</a></li><li class="dropdown-item"><!----> <a href="/pages/3afb01/" class="nav-link">安装部署</a></li><li class="dropdown-item"><!----> <a href="/pages/8f1364/" class="nav-link">用户手册</a></li><li class="dropdown-item"><!----> <a href="/pages/e5dc37/" aria-current="page" class="nav-link router-link-exact-active router-link-active">开发手册</a></li><li class="dropdown-item"><!----> <a href="/pages/794c63/" class="nav-link">联系我们</a></li></ul></div></div><div class="nav-item"><a href="https://github.com/galaxy-data-cn/chitu-sdp/issues" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  FAQ
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><a href="https://github.com/galaxy-data-cn/chitu-sdp" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>产品简介</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>快速入门</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>安装部署</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>用户手册</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>开发手册</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/pages/e5dc37/" aria-current="page" class="active sidebar-link">本地开发环境搭建</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level2"><a href="/pages/e5dc37/#开发环境搭建" class="sidebar-link">开发环境搭建</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level3"><a href="/pages/e5dc37/#前置条件" class="sidebar-link">前置条件</a></li><li class="sidebar-sub-header level3"><a href="/pages/e5dc37/#intellij-idea" class="sidebar-link">IntelliJ IDEA</a></li><li class="sidebar-sub-header level3"><a href="/pages/e5dc37/#前端环境" class="sidebar-link">前端环境</a></li><li class="sidebar-sub-header level3"><a href="/pages/e5dc37/#后端开发环境" class="sidebar-link">后端开发环境</a></li></ul></li></ul></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>联系我们</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <div><main class="page"><div class="theme-vdoing-wrapper "><div class="articleInfo-wrap" data-v-06225672><div class="articleInfo" data-v-06225672><ul class="breadcrumbs" data-v-06225672><li data-v-06225672><a href="/" title="首页" class="iconfont icon-home router-link-active" data-v-06225672></a></li> <li data-v-06225672><span data-v-06225672>开发文档</span></li><li data-v-06225672><span data-v-06225672>开发手册</span></li></ul> <div class="info" data-v-06225672><div title="作者" class="author iconfont icon-touxiang" data-v-06225672><a href="javascript:;" data-v-06225672>赤兔实时计算团队</a></div> <div title="创建时间" class="date iconfont icon-riqi" data-v-06225672><a href="javascript:;" data-v-06225672>2023-03-23</a></div> <!----></div></div></div> <!----> <div class="content-wrapper"><div class="right-menu-wrapper"><div class="right-menu-margin"><div class="right-menu-title">目录</div> <div class="right-menu-content"></div></div></div> <h1><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAABGpJREFUSA3tVVtoXFUU3fvOI53UlmCaKIFmwEhsE7QK0ipFEdHEKpXaZGrp15SINsXUWvBDpBgQRKi0+KKoFeJHfZA+ED9KKoIU2gYD9UejTW4rVIzm0VSTziPzuNu1z507dibTTjL4U/DAzLn3nL3X2o91ziX6f9wMFdh6Jvbm9nNSV0msViVO6tN1Rm7NMu2OpeJ9lWBUTDxrJbYTS0hInuwciu9eLHlFxCLCZEk3MegsJmZ5K/JD6t7FkFdEvGUo1g7qJoG3MHImqRIn8/nzY1K9UPKKiJmtnUqHVE3Gbuay6vJE/N2FEmuxFjW2nUuE0yQXRRxLiTUAzs36zhZvOXJPdX850EVnnLZkB8prodQoM5JGj7Xk2mvC7JB8tG04Ef5PiXtG0UtxupRQSfTnBoCy554x18yJHI6I+G5Eru4LHmPJZEQsrvPUbMiA8G/WgMK7w7I+ez7++o2ANfbrjvaOl1tFMs+htG3IrZH9/hDX1Pr8Tc0UvH8tcX29KzAgIGcEkINyW5BF9x891hw6VYqgJHEk0huccS7vh3C6gTiODL+26huuBtbct8eZnqLML8PkxGYpuPZBqtqwkSjgc4mB5gbgig5i+y0UDK35LMxXisn9xQtK+nd26gTIHsHe/oblK/b29fUmN/8Y+9jAQrnBp56m1LcDlDp9irKTExSKduXJVWSqdBMA08pEJnEIOB3FPPMybu/oeV8zFeYN3xx576Q6RH+VmplE4ncQV5v+5rzSoyOU7PuEAg8g803PwBJ0CExno/jcMbN8tONYeOmHiuUNryvm3fRUy4tMPVLdAGkUhNWuggGrJcXPv+ouCjz0MKUHz1J2/E8IC9nqTabcxgaBYM0hPhD5Y65FsbxRQKxCQrDjDctW7PUM3HuZunFyifSAqEfuzCp48Il24luWUWZoyJCaPR82jE0+kFA643wRFVni4RYSq3ohJO2pZ7B5dO4xkDWbEpossJPLSrPjYID8rS2UHTlvyNxqIGsg674XJJ7vnh5L7PNwC4hh2sjCI96mzszOTpxLF0T7l88Yz7lAuK6OnL8gXLOnTvpzSb22YG8W7us3jSebFHeeqnXRG1vt+MoUM84LQIBmMsCTAcOauTh0T0l0neQK7m2bLMt2mGxU3HYssS0J2cdv5wljlPsrIuZLAG/2DOZIXgCYT8uMGZN+e2kSirfxZOPCsC0f24nTZzspnVn9VePS1Z5vubmAGGXG8ZFno9Hel0yfA5ZPhF7Dh972BQJ2qCpgH67lmWtBYbvk6sz02wjky2vXyz0XErP/kFB619js1BtwfOV4OPRqOQBjy3Qbk18vigUPPSD5ceHnwck7W9bhAqZdd7SuG7w4/P2F/GaJh8c7e9qgow+Q7cGBo+98WsLkuktFqiZabtXuQTu/Y5ETbR0v7tNSFnvrmu6pjdoan2KjMu8q/Hmj1EfCO2ZGfEIbIXKUlw8qaX9/b2oeSJmFksSeT/Fn0V3nSypChh4Gjh74ybO9aeZ/AN2dwciu2/MhAAAAAElFTkSuQmCC">本地开发环境搭建<!----></h1> <!----> <div class="theme-vdoing-content content__default"><h2 id="开发环境搭建"><a href="#开发环境搭建" class="header-anchor">#</a> 开发环境搭建</h2> <h3 id="前置条件"><a href="#前置条件" class="header-anchor">#</a> 前置条件</h3> <p>在搭建赤兔开发环境之前请确保你已经安装如下软件</p> <ul><li>Git：版本控制软件</li> <li>JDK：后端开发</li> <li>Maven：Java依赖包管理</li> <li>Node：前端开发</li></ul> <h4 id="环境要求"><a href="#环境要求" class="header-anchor">#</a> 环境要求</h4> <table><thead><tr><th><strong>环境</strong></th> <th><strong>版本</strong></th></tr></thead> <tbody><tr><td>node.js</td> <td>14.20.1</td></tr> <tr><td>jdk</td> <td>1.8</td></tr> <tr><td>maven</td> <td>3.6.0+</td></tr> <tr><td>lombok</td> <td>IDEA插件安装</td></tr> <tr><td>mysql</td> <td>5.7+</td></tr></tbody></table> <h4 id="代码克隆"><a href="#代码克隆" class="header-anchor">#</a> 代码克隆</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>git clone https://github.com/galaxy-data-cn/chitu-sdp.git
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h3 id="intellij-idea"><a href="#intellij-idea" class="header-anchor">#</a> IntelliJ IDEA</h3> <p>该指南介绍了关于如何设置 IntelliJ IDEA 来进行赤兔本地前后端开发。Eclipse 不建议使用。以下文档描述了 IntelliJ IDEA 2021.3 的运行步骤。所以以下简称 IDEA 来表示 IntelliJ IDEA 。</p> <h4 id="安装-lombok-插件"><a href="#安装-lombok-插件" class="header-anchor">#</a> 安装 Lombok 插件</h4> <p>IDEA 提供了插件设置来安装 Lombok 插件。如果尚未安装，请在导入赤兔之前按照以下说明来进行操作以启用对 Lombok 注解的支持：</p> <ol><li>转到 IDEA Settings → Plugins 并选择 Marketplace 。</li> <li>选择并安装 Lombok 插件。如果出现提示，请重启IDEA。</li></ol> <h4 id="导入赤兔"><a href="#导入赤兔" class="header-anchor">#</a> 导入赤兔</h4> <ol><li>启动 IDEA 并选择 Open。</li> <li>选择已克隆的赤兔项目存储库的根文件夹。</li> <li>等待项目加载完成。</li> <li>设置 JDK 1.8 和 Maven 3.6.0。</li></ol> <h3 id="前端环境"><a href="#前端环境" class="header-anchor">#</a> 前端环境</h3> <h4 id="下载-node-js-版本-v14-20-12"><a href="#下载-node-js-版本-v14-20-12" class="header-anchor">#</a> 下载    node.js 版本：v14.20.12.</h4> <h4 id="安装"><a href="#安装" class="header-anchor">#</a> 安装</h4> <p><strong>方式一</strong> <strong>使用npm安装</strong></p> <div class="language- extra-class"><pre><code>npm install    
+</code></pre></div><p><strong>方式二</strong> <strong>使用淘宝镜像安装</strong></p> <div class="language- extra-class"><pre><code>npm install cnpm -g --registry=https://registry.npm.taobao.org
+cnpm install
+</code></pre></div><p><strong>方式三</strong> <strong>使用yarn安装</strong></p> <div class="language- extra-class"><pre><code>npm install       
+yarn
+</code></pre></div><h4 id="本地环境配置"><a href="#本地环境配置" class="header-anchor">#</a> 本地环境配置</h4> <ul><li><p>打开 vue.config.js，修改服务端地址，PROXY_ENV 设置成 'dev'，targets 对象的 dev 属性设置为 'http://127.0.0.1:12222'，请根据你本地服务端的地址及端口修改</p></li> <li><p>配置 devServer 的 proxy，请求后端接口统一添加一个根路径'/sdp'（如果不用/sdp，请同步修改src/utils/config.js中confg对象的apiRoot），用于解决前端跨域问题</p></li></ul> <h4 id="本地运行"><a href="#本地运行" class="header-anchor">#</a> 本地运行</h4> <p>npm run dev</p> <p>浏览器打开http://localhost:9527/ ，账号密码：admin/123456</p> <h3 id="后端开发环境"><a href="#后端开发环境" class="header-anchor">#</a> 后端开发环境</h3> <h4 id="配置mysql"><a href="#配置mysql" class="header-anchor">#</a> 配置mysql</h4> <p>参考如下：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/sdp?tinyInt1isBit=false&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;autoReconnect=true&amp;failOverReadOnly=false&amp;zeroDateTimeBehavior=convertToNull&amp;useSSL=false&amp;serverTimezone=Asia/Shanghai&amp;allowMultiQueries=true
+    username: xxx
+    password: xxx
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><h4 id="配置redis"><a href="#配置redis" class="header-anchor">#</a> 配置redis</h4> <p>参考如下：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>redis:
+    host: localhost
+    port: 6379
+    password: xxx
+    database: 10
+    timeout: 3000
+    pool:
+      max-active: 2000
+      max-idle: 20
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><h4 id="初始化数据库"><a href="#初始化数据库" class="header-anchor">#</a> 初始化数据库</h4> <p>执行项目路径/docs/sql下的sql文件。</p> <h4 id="配置hadoop环境变量"><a href="#配置hadoop环境变量" class="header-anchor">#</a> 配置hadoop环境变量</h4> <p>需要在IDEA中的Environment variables配置HADOOP_USER_NAME 和 HADOOP_HOME， HADOOP_USER_NAME 为具有 HDFS 读写权限的 Hadoop 用户名，HADOOP_HOME为开发机上Hadoop配置存放路径。</p> <p>例如：HADOOP_USER_NAME=admin;HADOOP_HOME=D:\opt\apache\hadoop-3.1.1
+<img src="/docs/localDev/hadoopEnv2.png" alt="3249c489a2c36233477543b14c6581bb.png"></p> <p>另外在配置文件中配置的hadoopConfDir在本地与项目同盘下需要有相应的hadoop目录及配置文件。
+例如：
+<img src="/docs/localDev/hadoopEnv.png" alt="6ee18fbe76a4d9032359673e70f5fa34.png"></p> <h4 id="启动后端服务"><a href="#启动后端服务" class="header-anchor">#</a> 启动后端服务</h4> <p>启动 chitu-sdp-provider 下的启动类，默认使用12222端口。</p> <p>启动 chitu-sdp-flink-submit-1.14 下的启动类，默认使用12282端口。</p> <p>启动 chitu-sdp-flink-submit-1.15 下的启动类，默认使用12283端口。</p> <h4 id="本地源码调试示例"><a href="#本地源码调试示例" class="header-anchor">#</a> 本地源码调试示例</h4> <p>在IDEA启动后，等待几分钟，访问http://localhost:9527/ 即可看到登录页，如下：
+<img src="/docs/localDev/login.png" alt="ea9557058fb62439e530646dd0d2ef91.png"></p> <p>输入账号密码后即可登录到赤兔平台，这个时候就可以基于本地做二次开发了。另外任务需要使用到的集群及flink相关配置可自行在配置文件上进行配置。
+<img src="/docs/localDev/home.png" alt="29840891d8a04574d7b716afa646c89f.png"></p> <h4 id="本地接口调试"><a href="#本地接口调试" class="header-anchor">#</a> 本地接口调试</h4> <p>打开开发者工具，查看请求头，一般请求需要在请求头赋上env、projectId、token、X-uid这几个参数。
+<img src="/docs/localDev/requestHeader.png" alt="ff336e06c7e695181e07db5b88303b08.png"> <img src="/docs/localDev/requestBody.png" alt="b0486f0494becf66fcb2aed5657f9192.png"></p> <p>以/job/queryJob接口为例，复制请求头以及请求体数据，粘贴到api工具进行修改调试。
+<img src="/docs/localDev/apiRequestHeader.png" alt="d3fc9d2066a6141e975179988b4a45ea.png"> <img src="/docs/localDev/apiRequestBody.png" alt="16397cba1c1749ccdc8998e68a713d50.png"> <img src="/docs/localDev/debugger.png" alt="321161c04b4703dedb7dbc1bf135f676.png"></p> <p>此时就请求到本地项目可以进行调试了。</p></div></div> <!----> <div class="page-edit"><!----> <!----> <!----></div> <div class="page-nav-wapper"><div class="page-nav-centre-wrap"><a href="/pages/d5c134/" class="page-nav-centre page-nav-centre-prev"><div class="tooltip">任务操作</div></a> <a href="/pages/794c63/" class="page-nav-centre page-nav-centre-next"><div class="tooltip">联系我们</div></a></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/pages/d5c134/" class="prev">任务操作</a></span> <span class="next"><a href="/pages/794c63/">联系我们</a>→
+      </span></p></div></div></div> <!----></main></div> <div class="footer"><!----> 
+  Theme by
+  <a href="https://github.com/xugaoyi/vuepress-theme-vdoing" target="_blank" title="本站主题">Vdoing</a> 
+    | Copyright © 2023-2023
+    <span></span></div> <div class="buttons"><div title="返回顶部" class="button blur go-to-top iconfont icon-fanhuidingbu" style="display:none;"></div> <div title="去评论" class="button blur go-to-comment iconfont icon-pinglun" style="display:none;"></div> <div title="主题模式" class="button blur theme-mode-but iconfont icon-zhuti"><ul class="select-box" style="display:none;"><li class="iconfont icon-zidong">
+          跟随系统
+        </li><li class="iconfont icon-rijianmoshi">
+          浅色模式
+        </li><li class="iconfont icon-yejianmoshi">
+          深色模式
+        </li><li class="iconfont icon-yuedu">
+          阅读模式
+        </li></ul></div></div> <!----> <!----> <!----></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.14ccb522.js" defer></script><script src="/assets/js/2.24ca2cad.js" defer></script><script src="/assets/js/27.41ead25d.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>版本信息 | 赤兔实时计算平台</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    <link rel="icon" href="/logo/small.png">
+    <script>
+  if(window.location.host.indexOf('localhost') < 0) {
+    var appKey = 'r336dqylqlyt6aqotj8u0771';
+    var logUrl = 'kye-log-sdk.ky-express.com';
+    var jsUrl = 'https://bg-prd-cos-bdp-1257092428.cos.ap-guangzhou.myqcloud.com/bigdata/kyelog/aplus_web_v9_md5_c1f7.js';
+    
+    (function (w, d, s, q) {
+    w[q] = w[q] || [];
+    var f = d.getElementsByTagName(s)[0], j = d.createElement(s);
+    j.async = true;
+    j.id = 'beacon-aplus';
+    j.src = jsUrl;
+    f.parentNode.insertBefore(j, f)
+    })(window, document, 'script', 'aplus_queue')
+    //集成应用的appKey
+    aplus_queue.push({ action: 'aplus.setMetaInfo', arguments: ['appKey', appKey] })
+    //如果是私有云部署还需要在上面那段JS后面紧接着添加日志域名埋点
+    //通常私有云日志服务端域名类似于：quickaplus-web-api.xxx.com.cn, 具体域名要找交付同学要
+    aplus_queue.push({ action: 'aplus.setMetaInfo', arguments: ['aplus-rhost-v', logUrl] })
+    aplus_queue.push({ action: 'aplus.setMetaInfo', arguments: ['DEBUG', true] })
+    //开启全埋点
+    aplus_queue.push({
+    action: 'aplus.setMetaInfo',
+    arguments: ['aplus-autotrack-enabled', true]
+    });
+    // 全埋点配置
+    aplus_queue.push({
+    action: 'aplus.setMetaInfo',
+    arguments: [
+      'aplus-autotrack-config',
+      {
+        collect_tags: {
+          li: true,
+          img: true,
+          div: true,
+          span: true,
+          i: true,
+          svg: true,
+          path: true,
+          p: true,
+          td: true
+        },
+        collect_input: true, // 采集input框输入内容
+        element_capture_enable: true // 全埋点控件点击支持事件捕获模式，默认为冒泡模式，值为false
+      }
+    ]
+    })
+    //apm
+    void (function (e, t, n, a, o, i, m) {
+    (e._um_apm_namespace = o),
+      (e[o] =
+        e[o] ||
+        function () {
+          (e[o].q = e[o].q || []).push(arguments);
+        }),
+      (e[o].l = e[o].l || +new Date()),
+      (i = t.createElement(n)),
+      i.setAttribute('crossorigin', ''),
+      (i.src = a),
+      (m = t.getElementsByTagName(n)[0]),
+      m.parentNode.insertBefore(i, m);
+    })(window, document, "script", "https://bg-prd-cos-bdp-1257092428.cos.ap-guangzhou.myqcloud.com/bigdata/kyelog/apm_v2_md5_1b26.js", "_apm");
+    _apm('create', {
+    pid: appKey,
+    dsn: 'https://' + logUrl,
+    pageFilter: { mode: 'ignore', rules: [] },
+    });
+  }
+ </script>
+    <meta name="description" content="赤兔实时计算平台是大数据产品生态体系的实时化分析利器，是基于 Apache Flink 构建的具备一站开发、无缝连接、亚秒延时、低廉成本、安全稳定等特点的企业级实时大数据计算平台。平台提供SQL化IDE开发环境，任务运维发布流程，任务监控体系，多环境隔离转环境支持，多集群管理等多种企业级特性支持，帮助企业加速进行实时应用开发与实践, 加快实时化数字化的建设进程。">
+    <meta name="keywords" content="chitu-sdp,chitu-sdp-flink,chitu-sdp-provider,赤兔实时计算,赤兔实时计算文档">
+    <meta name="theme-color" content="#11a8cd">
+    <meta name="viewport" content="width=device-width,initial-sacle=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
+    
+    <link rel="preload" href="/assets/css/0.styles.eb8041ce.css" as="style"><link rel="preload" href="/assets/js/app.14ccb522.js" as="script"><link rel="preload" href="/assets/js/2.24ca2cad.js" as="script"><link rel="preload" href="/assets/js/24.247c6f02.js" as="script"><link rel="prefetch" href="/assets/js/10.57027684.js"><link rel="prefetch" href="/assets/js/11.7c227400.js"><link rel="prefetch" href="/assets/js/12.4a1ae251.js"><link rel="prefetch" href="/assets/js/13.7ed105b5.js"><link rel="prefetch" href="/assets/js/14.40c985fa.js"><link rel="prefetch" href="/assets/js/15.ecc31e56.js"><link rel="prefetch" href="/assets/js/16.94d7547d.js"><link rel="prefetch" href="/assets/js/17.2999f2da.js"><link rel="prefetch" href="/assets/js/18.6087cb46.js"><link rel="prefetch" href="/assets/js/19.ef03d88b.js"><link rel="prefetch" href="/assets/js/20.a2f07415.js"><link rel="prefetch" href="/assets/js/21.55ae073c.js"><link rel="prefetch" href="/assets/js/22.742c2683.js"><link rel="prefetch" href="/assets/js/23.ea29b97b.js"><link rel="prefetch" href="/assets/js/25.471decef.js"><link rel="prefetch" href="/assets/js/26.aea1d6df.js"><link rel="prefetch" href="/assets/js/27.41ead25d.js"><link rel="prefetch" href="/assets/js/28.8e5c837f.js"><link rel="prefetch" href="/assets/js/29.9d66d366.js"><link rel="prefetch" href="/assets/js/3.f609e95a.js"><link rel="prefetch" href="/assets/js/30.fd4b127f.js"><link rel="prefetch" href="/assets/js/31.3e5abe6b.js"><link rel="prefetch" href="/assets/js/32.fd952816.js"><link rel="prefetch" href="/assets/js/4.2cd2aecb.js"><link rel="prefetch" href="/assets/js/5.245d6ccc.js"><link rel="prefetch" href="/assets/js/6.782f9449.js"><link rel="prefetch" href="/assets/js/7.26cec53d.js"><link rel="prefetch" href="/assets/js/8.4d3edb0a.js"><link rel="prefetch" href="/assets/js/9.dc5c466f.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.eb8041ce.css">
+  </head>
+  <body class="theme-mode-light">
+    <div id="app" data-server-rendered="true"><div class="theme-container sidebar-open have-rightmenu"><header class="navbar blur"><div title="目录" class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/image/nav-logo.png" alt="赤兔实时计算平台" class="logo"> <span class="site-name can-hide">赤兔实时计算平台</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="文档" class="dropdown-title"><a href="/pages/69fb10/" class="link-title">文档</a> <span class="title" style="display:none;">文档</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/69fb10/" class="nav-link">产品简介</a></li><li class="dropdown-item"><!----> <a href="/pages/58ae2f/" class="nav-link">快速入门</a></li><li class="dropdown-item"><!----> <a href="/pages/3afb01/" class="nav-link">安装部署</a></li><li class="dropdown-item"><!----> <a href="/pages/8f1364/" class="nav-link">用户手册</a></li><li class="dropdown-item"><!----> <a href="/pages/e5dc37/" class="nav-link">开发手册</a></li><li class="dropdown-item"><!----> <a href="/pages/794c63/" class="nav-link">联系我们</a></li></ul></div></div><div class="nav-item"><a href="https://github.com/galaxy-data-cn/chitu-sdp/issues" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  FAQ
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><a href="https://github.com/galaxy-data-cn/chitu-sdp" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar-hover-trigger"></div> <aside class="sidebar" style="display:none;"><!----> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="文档" class="dropdown-title"><a href="/pages/69fb10/" class="link-title">文档</a> <span class="title" style="display:none;">文档</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/69fb10/" class="nav-link">产品简介</a></li><li class="dropdown-item"><!----> <a href="/pages/58ae2f/" class="nav-link">快速入门</a></li><li class="dropdown-item"><!----> <a href="/pages/3afb01/" class="nav-link">安装部署</a></li><li class="dropdown-item"><!----> <a href="/pages/8f1364/" class="nav-link">用户手册</a></li><li class="dropdown-item"><!----> <a href="/pages/e5dc37/" class="nav-link">开发手册</a></li><li class="dropdown-item"><!----> <a href="/pages/794c63/" class="nav-link">联系我们</a></li></ul></div></div><div class="nav-item"><a href="https://github.com/galaxy-data-cn/chitu-sdp/issues" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  FAQ
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><a href="https://github.com/galaxy-data-cn/chitu-sdp" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>产品简介</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>快速入门</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>安装部署</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>用户手册</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/pages/8f1364/" class="sidebar-link">上下游数据一览</a></li><li><a href="/pages/b739e1/" class="sidebar-link">用户权限</a></li><li><a href="/pages/3ca8ab/" class="sidebar-link">引擎管理</a></li><li><a href="/pages/c3ed69/" class="sidebar-link">项目管理</a></li><li><a href="/pages/eacd63/" class="sidebar-link">数据源管理</a></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading open"><span>作业开发</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/pages/e71ad9/" class="sidebar-link">开发 SQL 作业</a></li><li><a href="/pages/137485/" class="sidebar-link">开发 JAR 作业</a></li><li><a href="/pages/8e9213/" class="sidebar-link">高级配置</a></li><li><a href="/pages/682fdf/" class="sidebar-link">资源配置</a></li><li><a href="/pages/be8b44/" aria-current="page" class="active sidebar-link">版本信息</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level2"><a href="/pages/be8b44/#版本信息" class="sidebar-link">版本信息</a></li><li class="sidebar-sub-header level2"><a href="/pages/be8b44/#对比作业版本" class="sidebar-link">对比作业版本</a></li><li class="sidebar-sub-header level2"><a href="/pages/be8b44/#回滚作业版本" class="sidebar-link">回滚作业版本</a></li></ul></li><li><a href="/pages/404f18/" class="sidebar-link">转生产环境</a></li></ul></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>作业运维</span> <span class="arrow right"></span></p> <!----></section></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>开发手册</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>联系我们</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <div><main class="page"><div class="theme-vdoing-wrapper "><div class="articleInfo-wrap" data-v-06225672><div class="articleInfo" data-v-06225672><ul class="breadcrumbs" data-v-06225672><li data-v-06225672><a href="/" title="首页" class="iconfont icon-home router-link-active" data-v-06225672></a></li> <li data-v-06225672><span data-v-06225672>开发文档</span></li><li data-v-06225672><span data-v-06225672>用户手册</span></li><li data-v-06225672><span data-v-06225672>作业开发</span></li></ul> <div class="info" data-v-06225672><div title="作者" class="author iconfont icon-touxiang" data-v-06225672><a href="javascript:;" data-v-06225672>赤兔实时计算团队</a></div> <div title="创建时间" class="date iconfont icon-riqi" data-v-06225672><a href="javascript:;" data-v-06225672>2023-03-22</a></div> <!----></div></div></div> <!----> <div class="content-wrapper"><div class="right-menu-wrapper"><div class="right-menu-margin"><div class="right-menu-title">目录</div> <div class="right-menu-content"></div></div></div> <h1><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAABKFJREFUSA3tVl1oFVcQnrMbrak3QUgkya1akpJYcrUtIqW1JvFBE9LiQ5v6JmJpolbMg32rVrhgoYK0QiMY6i9Y6EMaW5D+xFJaTYItIuK2Kr3+BJNwkxBj05sQY3b3nM6cs2dv9t7NT/vQJw/sndk5M/PNzJkzewGerP+pAmy+ON8lLzUJgA8ZYxYIYZmGYRnctDaWvJJAmTtfP1pvXsBCCPP8QFcCaRkZYACgDZFO4stNIcBCajEOlmmC9XpJ9bAGCaPaPmzPl32dvLSVu3BWCTQs0XQQ6g0DYgwLIoAZbBCdW/i+781o1VVlm/410mw4h06Y7bIPHNyWDyL4FHkX03Q8SrzNhZTZriieckWt7cL6MM85YcLpsi/7O9/iXFT6MswI0DmmpkSaJ0qLxFIm3+i1THHB3zmBH3PYx9CcykcLOeQVVa7QtdxTgQgEleX2AjHYfwA+2ddV77ruGoJUbhGDI09YSNXyMpUt5ylOzxgbUmtOp7NmbNt8v3arjTBfYELmLUV+M+nSawNNAUqpT3ClJWg5I3BLT+cGW/DXNGCa6tx1aakCGEigArTn4TDIPdrXXYKCZNrHLMCOEPvHBlLQ99s9eHB7EB6NTki73CVPQ2F5MSx/uRQixfmq7rK0wYD8w8E905bnPDfwoWs/rfv93NWN/ZfvwsLIU7A09gxECyISeGJkHAau98L97tuw7NXnoPyNF8FcYGLGKsOs0mN3OEyec9esGW/ZEl945dTP34wlR2FZVQWU1q0Cw8Tr7p+hgLLNL0FPxx/Q35mA8aEUrH6nCgwEl0tn7wUiZYJnNRh6DK4UH/k0lfyrsBKdPVv/AriGIQcEDQZ65LBAGe2Rzui9Ybjz7XUppz1/uKBbyVPGkN3ZAeC6hr0x7Nr38N5+EqkoOm17xpoqR9ohQF55ERSvr4Dkr3chNfC3DMzGJlNBElW8w9nsGQvhNGIzDkXzCg8cLK951xHsFBlTJspJNi3ZFIMF2AeDV3q8DNOB+YHi6QTrChDIWDBRi5U5f+ZMfJLu3ccrqxtdxk4SKH336LFxSmkqefwU5T8fhdSdQf9IVKD6aNiwI/hnmcAZ91isYMJIaCUCx9W098+LgruikeTqzqqxKPUwqJyCPJiyemVVZBOijDGjD38Os0jOiSPL1z3SPjXNANbiNPXAdzTfukjjuknNBbyz3nwgTd3AVFqUJ5hpHlq9MveLnWwttUfoygBmvVjuikxND3znrhsELnZk7k+OjIGxeNEkomyLVta0xxn+HZhjBc4YZ/AFjHjz9u3xRZl2BN4aq9nFwWh16IrQ1aHHEd3j1+4/dB9OtH4e29A2H1DyHQRmOSfQZ1Fy7MHBTGB6J/Djq6p3OxyO2cB+4Car7v/o3GXgfAkj23+x9ID1Teoamo/SXcbvSf2PX7Vc8DdCmE1vN9di+32P9/5YR3vLnhCVGUWBjEkr3yh4H8v9CzmsbdhzOKzsJKM90iFdaTMjRPhGVsakRvOaRidljo6H6G7j+ctrJpsP+4COhDIl0La2+FS4+5mlocBaXY5QnGZysIBYoeSsl5qQzrSj/cgNrfuEzlWBfwA+EjrZyWUvpAAAAABJRU5ErkJggg==">版本信息<!----></h1> <!----> <div class="theme-vdoing-content content__default"><h2 id="版本信息"><a href="#版本信息" class="header-anchor">#</a> 版本信息</h2> <p>在作业开发页面，单击“发布至UAT”后，就会自动生成一个新版本。您可以对比当前编辑版本和历史版本的差异，实现回滚历史版本作业信息的需求。</p> <h2 id="对比作业版本"><a href="#对比作业版本" class="header-anchor">#</a> 对比作业版本</h2> <p>支持SQL代码、DS信息、Flink配置、资源配置内容的对比，有差异的内容就会高亮颜色标记出来。</p> <ol><li><p>登录赤兔实时计算平台。</p></li> <li><p>在<strong>顶部页签</strong>，单击选择目标项目。</p></li> <li><p>在左侧导航栏，单击<strong>实时开发</strong>-<strong>作业开发</strong>。</p></li> <li><p>双击目标作业名称。</p></li> <li><p>在页面右侧，单击<strong>版本信息</strong>。</p> <p><img src="/docs/%E7%89%88%E6%9C%AC%E4%BF%A1%E6%81%AF-1.png" alt="版本信息-1"></p></li> <li><p>在目标版本号对应的<strong>操作</strong>列，单击<strong>对比</strong>。</p></li></ol> <p><img src="/docs/%E7%89%88%E6%9C%AC%E4%BF%A1%E6%81%AF-2.png" alt="版本信息-2"></p> <p><img src="/docs/%E7%89%88%E6%9C%AC%E4%BF%A1%E6%81%AF-3.png" alt="版本信息-3"></p> <h2 id="回滚作业版本"><a href="#回滚作业版本" class="header-anchor">#</a> 回滚作业版本</h2> <p>您可以将作业上线后产生的目标版本的作业信息回滚到当前编辑版本，当前编辑版本为您现在正在编辑的作业。</p> <ol><li><p>登录赤兔实时计算平台。</p></li> <li><p>在<strong>顶部页签</strong>，单击选择目标项目。</p></li> <li><p>在左侧导航栏，单击<strong>实时开发</strong>-<strong>作业开发</strong>。</p></li> <li><p>双击目标作业名称。</p></li> <li><p>在页面右侧，单击<strong>版本信息</strong>。</p> <p><img src="/docs/%E7%89%88%E6%9C%AC%E4%BF%A1%E6%81%AF-4.png" alt="版本信息-4"></p></li> <li><p>在目标版本号对应的<strong>操作</strong>列，点击<strong>回滚</strong>，出现弹窗点击<strong>确认</strong>。</p> <p><img src="/docs/%E7%89%88%E6%9C%AC%E4%BF%A1%E6%81%AF-5.png" alt="版本信息-5"></p></li></ol></div></div> <!----> <div class="page-edit"><!----> <!----> <!----></div> <div class="page-nav-wapper"><div class="page-nav-centre-wrap"><a href="/pages/682fdf/" class="page-nav-centre page-nav-centre-prev"><div class="tooltip">资源配置</div></a> <a href="/pages/404f18/" class="page-nav-centre page-nav-centre-next"><div class="tooltip">转生产环境</div></a></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/pages/682fdf/" class="prev">资源配置</a></span> <span class="next"><a href="/pages/404f18/">转生产环境</a>→
+      </span></p></div></div></div> <!----></main></div> <div class="footer"><!----> 
+  Theme by
+  <a href="https://github.com/xugaoyi/vuepress-theme-vdoing" target="_blank" title="本站主题">Vdoing</a> 
+    | Copyright © 2023-2023
+    <span></span></div> <div class="buttons"><div title="返回顶部" class="button blur go-to-top iconfont icon-fanhuidingbu" style="display:none;"></div> <div title="去评论" class="button blur go-to-comment iconfont icon-pinglun" style="display:none;"></div> <div title="主题模式" class="button blur theme-mode-but iconfont icon-zhuti"><ul class="select-box" style="display:none;"><li class="iconfont icon-zidong">
+          跟随系统
+        </li><li class="iconfont icon-rijianmoshi">
+          浅色模式
+        </li><li class="iconfont icon-yejianmoshi">
+          深色模式
+        </li><li class="iconfont icon-yuedu">
+          阅读模式
+        </li></ul></div></div> <!----> <!----> <!----></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.14ccb522.js" defer></script><script src="/assets/js/2.24ca2cad.js" defer></script><script src="/assets/js/24.247c6f02.js" defer></script>
+  </body>
+</html>

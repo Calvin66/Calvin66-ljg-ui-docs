@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>开发 JAR 作业 | 赤兔实时计算平台</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    <link rel="icon" href="/logo/small.png">
+    <script>
+  if(window.location.host.indexOf('localhost') < 0) {
+    var appKey = 'r336dqylqlyt6aqotj8u0771';
+    var logUrl = 'kye-log-sdk.ky-express.com';
+    var jsUrl = 'https://bg-prd-cos-bdp-1257092428.cos.ap-guangzhou.myqcloud.com/bigdata/kyelog/aplus_web_v9_md5_c1f7.js';
+    
+    (function (w, d, s, q) {
+    w[q] = w[q] || [];
+    var f = d.getElementsByTagName(s)[0], j = d.createElement(s);
+    j.async = true;
+    j.id = 'beacon-aplus';
+    j.src = jsUrl;
+    f.parentNode.insertBefore(j, f)
+    })(window, document, 'script', 'aplus_queue')
+    //集成应用的appKey
+    aplus_queue.push({ action: 'aplus.setMetaInfo', arguments: ['appKey', appKey] })
+    //如果是私有云部署还需要在上面那段JS后面紧接着添加日志域名埋点
+    //通常私有云日志服务端域名类似于：quickaplus-web-api.xxx.com.cn, 具体域名要找交付同学要
+    aplus_queue.push({ action: 'aplus.setMetaInfo', arguments: ['aplus-rhost-v', logUrl] })
+    aplus_queue.push({ action: 'aplus.setMetaInfo', arguments: ['DEBUG', true] })
+    //开启全埋点
+    aplus_queue.push({
+    action: 'aplus.setMetaInfo',
+    arguments: ['aplus-autotrack-enabled', true]
+    });
+    // 全埋点配置
+    aplus_queue.push({
+    action: 'aplus.setMetaInfo',
+    arguments: [
+      'aplus-autotrack-config',
+      {
+        collect_tags: {
+          li: true,
+          img: true,
+          div: true,
+          span: true,
+          i: true,
+          svg: true,
+          path: true,
+          p: true,
+          td: true
+        },
+        collect_input: true, // 采集input框输入内容
+        element_capture_enable: true // 全埋点控件点击支持事件捕获模式，默认为冒泡模式，值为false
+      }
+    ]
+    })
+    //apm
+    void (function (e, t, n, a, o, i, m) {
+    (e._um_apm_namespace = o),
+      (e[o] =
+        e[o] ||
+        function () {
+          (e[o].q = e[o].q || []).push(arguments);
+        }),
+      (e[o].l = e[o].l || +new Date()),
+      (i = t.createElement(n)),
+      i.setAttribute('crossorigin', ''),
+      (i.src = a),
+      (m = t.getElementsByTagName(n)[0]),
+      m.parentNode.insertBefore(i, m);
+    })(window, document, "script", "https://bg-prd-cos-bdp-1257092428.cos.ap-guangzhou.myqcloud.com/bigdata/kyelog/apm_v2_md5_1b26.js", "_apm");
+    _apm('create', {
+    pid: appKey,
+    dsn: 'https://' + logUrl,
+    pageFilter: { mode: 'ignore', rules: [] },
+    });
+  }
+ </script>
+    <meta name="description" content="赤兔实时计算平台是大数据产品生态体系的实时化分析利器，是基于 Apache Flink 构建的具备一站开发、无缝连接、亚秒延时、低廉成本、安全稳定等特点的企业级实时大数据计算平台。平台提供SQL化IDE开发环境，任务运维发布流程，任务监控体系，多环境隔离转环境支持，多集群管理等多种企业级特性支持，帮助企业加速进行实时应用开发与实践, 加快实时化数字化的建设进程。">
+    <meta name="keywords" content="chitu-sdp,chitu-sdp-flink,chitu-sdp-provider,赤兔实时计算,赤兔实时计算文档">
+    <meta name="theme-color" content="#11a8cd">
+    <meta name="viewport" content="width=device-width,initial-sacle=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
+    
+    <link rel="preload" href="/assets/css/0.styles.eb8041ce.css" as="style"><link rel="preload" href="/assets/js/app.14ccb522.js" as="script"><link rel="preload" href="/assets/js/2.24ca2cad.js" as="script"><link rel="preload" href="/assets/js/21.55ae073c.js" as="script"><link rel="prefetch" href="/assets/js/10.57027684.js"><link rel="prefetch" href="/assets/js/11.7c227400.js"><link rel="prefetch" href="/assets/js/12.4a1ae251.js"><link rel="prefetch" href="/assets/js/13.7ed105b5.js"><link rel="prefetch" href="/assets/js/14.40c985fa.js"><link rel="prefetch" href="/assets/js/15.ecc31e56.js"><link rel="prefetch" href="/assets/js/16.94d7547d.js"><link rel="prefetch" href="/assets/js/17.2999f2da.js"><link rel="prefetch" href="/assets/js/18.6087cb46.js"><link rel="prefetch" href="/assets/js/19.ef03d88b.js"><link rel="prefetch" href="/assets/js/20.a2f07415.js"><link rel="prefetch" href="/assets/js/22.742c2683.js"><link rel="prefetch" href="/assets/js/23.ea29b97b.js"><link rel="prefetch" href="/assets/js/24.247c6f02.js"><link rel="prefetch" href="/assets/js/25.471decef.js"><link rel="prefetch" href="/assets/js/26.aea1d6df.js"><link rel="prefetch" href="/assets/js/27.41ead25d.js"><link rel="prefetch" href="/assets/js/28.8e5c837f.js"><link rel="prefetch" href="/assets/js/29.9d66d366.js"><link rel="prefetch" href="/assets/js/3.f609e95a.js"><link rel="prefetch" href="/assets/js/30.fd4b127f.js"><link rel="prefetch" href="/assets/js/31.3e5abe6b.js"><link rel="prefetch" href="/assets/js/32.fd952816.js"><link rel="prefetch" href="/assets/js/4.2cd2aecb.js"><link rel="prefetch" href="/assets/js/5.245d6ccc.js"><link rel="prefetch" href="/assets/js/6.782f9449.js"><link rel="prefetch" href="/assets/js/7.26cec53d.js"><link rel="prefetch" href="/assets/js/8.4d3edb0a.js"><link rel="prefetch" href="/assets/js/9.dc5c466f.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.eb8041ce.css">
+  </head>
+  <body class="theme-mode-light">
+    <div id="app" data-server-rendered="true"><div class="theme-container sidebar-open have-rightmenu"><header class="navbar blur"><div title="目录" class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/image/nav-logo.png" alt="赤兔实时计算平台" class="logo"> <span class="site-name can-hide">赤兔实时计算平台</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="文档" class="dropdown-title"><a href="/pages/69fb10/" class="link-title">文档</a> <span class="title" style="display:none;">文档</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/69fb10/" class="nav-link">产品简介</a></li><li class="dropdown-item"><!----> <a href="/pages/58ae2f/" class="nav-link">快速入门</a></li><li class="dropdown-item"><!----> <a href="/pages/3afb01/" class="nav-link">安装部署</a></li><li class="dropdown-item"><!----> <a href="/pages/8f1364/" class="nav-link">用户手册</a></li><li class="dropdown-item"><!----> <a href="/pages/e5dc37/" class="nav-link">开发手册</a></li><li class="dropdown-item"><!----> <a href="/pages/794c63/" class="nav-link">联系我们</a></li></ul></div></div><div class="nav-item"><a href="https://github.com/galaxy-data-cn/chitu-sdp/issues" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  FAQ
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><a href="https://github.com/galaxy-data-cn/chitu-sdp" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar-hover-trigger"></div> <aside class="sidebar" style="display:none;"><!----> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="文档" class="dropdown-title"><a href="/pages/69fb10/" class="link-title">文档</a> <span class="title" style="display:none;">文档</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/69fb10/" class="nav-link">产品简介</a></li><li class="dropdown-item"><!----> <a href="/pages/58ae2f/" class="nav-link">快速入门</a></li><li class="dropdown-item"><!----> <a href="/pages/3afb01/" class="nav-link">安装部署</a></li><li class="dropdown-item"><!----> <a href="/pages/8f1364/" class="nav-link">用户手册</a></li><li class="dropdown-item"><!----> <a href="/pages/e5dc37/" class="nav-link">开发手册</a></li><li class="dropdown-item"><!----> <a href="/pages/794c63/" class="nav-link">联系我们</a></li></ul></div></div><div class="nav-item"><a href="https://github.com/galaxy-data-cn/chitu-sdp/issues" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  FAQ
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><a href="https://github.com/galaxy-data-cn/chitu-sdp" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>产品简介</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>快速入门</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>安装部署</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>用户手册</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/pages/8f1364/" class="sidebar-link">上下游数据一览</a></li><li><a href="/pages/b739e1/" class="sidebar-link">用户权限</a></li><li><a href="/pages/3ca8ab/" class="sidebar-link">引擎管理</a></li><li><a href="/pages/c3ed69/" class="sidebar-link">项目管理</a></li><li><a href="/pages/eacd63/" class="sidebar-link">数据源管理</a></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading open"><span>作业开发</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/pages/e71ad9/" class="sidebar-link">开发 SQL 作业</a></li><li><a href="/pages/137485/" aria-current="page" class="active sidebar-link">开发 JAR 作业</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level2"><a href="/pages/137485/#开发-jar-作业" class="sidebar-link">开发 JAR 作业</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level3"><a href="/pages/137485/#前提条件" class="sidebar-link">前提条件</a></li><li class="sidebar-sub-header level3"><a href="/pages/137485/#步骤一-上传jar包" class="sidebar-link">步骤一：上传jar包</a></li><li class="sidebar-sub-header level3"><a href="/pages/137485/#步骤二-创建jar作业" class="sidebar-link">步骤二：创建jar作业</a></li><li class="sidebar-sub-header level3"><a href="/pages/137485/#步骤三-发布jar作业" class="sidebar-link">步骤三：发布jar作业</a></li><li class="sidebar-sub-header level3"><a href="/pages/137485/#步骤四-运行jar任务" class="sidebar-link">步骤四：运行jar任务</a></li><li class="sidebar-sub-header level3"><a href="/pages/137485/#步骤五-查看运行情况" class="sidebar-link">步骤五：查看运行情况</a></li></ul></li></ul></li><li><a href="/pages/8e9213/" class="sidebar-link">高级配置</a></li><li><a href="/pages/682fdf/" class="sidebar-link">资源配置</a></li><li><a href="/pages/be8b44/" class="sidebar-link">版本信息</a></li><li><a href="/pages/404f18/" class="sidebar-link">转生产环境</a></li></ul></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>作业运维</span> <span class="arrow right"></span></p> <!----></section></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>开发手册</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>联系我们</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <div><main class="page"><div class="theme-vdoing-wrapper "><div class="articleInfo-wrap" data-v-06225672><div class="articleInfo" data-v-06225672><ul class="breadcrumbs" data-v-06225672><li data-v-06225672><a href="/" title="首页" class="iconfont icon-home router-link-active" data-v-06225672></a></li> <li data-v-06225672><span data-v-06225672>开发文档</span></li><li data-v-06225672><span data-v-06225672>用户手册</span></li><li data-v-06225672><span data-v-06225672>作业开发</span></li></ul> <div class="info" data-v-06225672><div title="作者" class="author iconfont icon-touxiang" data-v-06225672><a href="javascript:;" data-v-06225672>赤兔实时计算团队</a></div> <div title="创建时间" class="date iconfont icon-riqi" data-v-06225672><a href="javascript:;" data-v-06225672>2023-03-22</a></div> <!----></div></div></div> <!----> <div class="content-wrapper"><div class="right-menu-wrapper"><div class="right-menu-margin"><div class="right-menu-title">目录</div> <div class="right-menu-content"></div></div></div> <h1><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAABH1JREFUSA3tVl1oHFUUPmdmd2ltklqbpJDiNnXFmgbFktho7YMPNiJSSZM0+CAYSkUELVhM6YuwIPpgoOKDqOBDC0XE2CQoNtQXBUFTTcCi+Wlh1V2TQExsUzcltd3M9Tt3ZjZzZ2fT+OJTL8yeM+eee757fmeJbq//KQL8X3DUSFOcfr7cRsRtxNQMWueeVzOkaITIGqQHNg5y8+jNW9ldM7A6nTpAjuolUikAwq7CE3WcM2RRDz+XGVgN3FptU/aUSlvq9Pa3iZ1+sgAqJyyAFqkipd9dqiwHF3P65YycLWc/6sqGrvoEoIp6DOFaX5h6+dnfjkWprwqsPk0dUGq5vySwDImC10KxFHgGL1SWoc92O3eVht09qdXNH11I2SsTsJYqMWzihqGMi+A+Garf3BAuuLI5oGlULyNfyB/HYNujwktOfRrMr5t77NmevqaUopx0grnKAyvVpmwUDB4x6FPXuGvYLTDwWsejwgtgkYKPqRJg8SV6xaiZ3ZTppGneS4yfH5/66fZSDHv+QZci/+h5c5UHtpy67JUqGppM0sh0Nc1dW6/N1W5Yoqat8/TU/VnadmdeW2PLLSyh0cvxBs3KbqTmwYPpxN4do/mzE8nEpvX/UMu2Wbp74zUAK5q6WkHns7V0eWkdPbPzd3rxkTGybadYySumVzhcaJFbs5UrEkQ/+CK8gF5dnh/6ciIZ73gwQ927L1IitoxKLXYP3SjYdOrHHfTZhRRlFyrorafPk20B3HPD1y2G3qKZME5Jcf3t/HUC13/8tSd++vqFveMUTwAUxSUFI1QekR1+bIze3D9MF2aq6cPvG72CgnldWCFqyRw3lwH8ZMerjTD9ElRO7Gv44wNpC90aASqGfVlz/Rx17srQ57/UU26hkhQqUB7dBR71WmzQhHUnblGmVOEw0jhbV1n9OlXUDCIRGaNV5Jp43N516fN7JmnTHdfp7Hgy0luO4aMhtkLL8Bi3bUWYvzh5Mn1dTxrL6QmGuRhGL/TiTTxRoEdTszSaq9GR0NGA3KdkOz3hqSV3MIDhQ5IVX/Ivx3umBti2es2h4eZby7x8br1rkf7Mo90AqC8aQ3sJeNzqFRu+vSANAQe3PL7l0HGOAdwDCeZYvNKeoZp1Qfs6Aipndh86HmFRi0LAnEO47wsqM6cdfjh3jBPUzhZy7nvlUfFsamED1VQt6aISHVymXZ/B2aCtIG8AI8xfobj2d3en1wWVhOeHELKmLQ1s211s88comkv4UCwWyF787mJdYXtNfhKAXVqnKTq8QZvGAGGOfaTo5pGZ/PwbUCr5+DPr/1J92JNHr9aOl/F3iI5+O1nfybsGxoimvZ3ViWSluDITw3P37mypheDIPY0tw7+O/5ApbkYw+zpfaUVu32Pi98+defdUhEpZkRFq0aqyNh9FuL9hpYbEm6iwi0z2REd09ZmyENEbuhjDWzKvZXTqKYaBIr3tt5kuPtQBZFvEUwHt60vfCNu41XsksH9Ij1BMMz1Y0OOunHNShFIP5868g5zeXmuLwL9T4b6Q2+KejgAAAABJRU5ErkJggg==">开发 JAR 作业<!----></h1> <!----> <div class="theme-vdoing-content content__default"><h2 id="开发-jar-作业"><a href="#开发-jar-作业" class="header-anchor">#</a> 开发 JAR 作业</h2> <h3 id="前提条件"><a href="#前提条件" class="header-anchor">#</a> 前提条件</h3> <h5 id="进入项目"><a href="#进入项目" class="header-anchor">#</a> <strong>进入项目</strong></h5> <p>要有对应的项目，进入到对应的项目进行开发，可以在<code>项目管理</code>中<code>进入项目</code>或者在<code>作业开发</code>中切换项目，若没有对应的项目则需要项目管理员或者系统管理员进行添加，<code>项目管理</code>相关操作可以在用户手册中查看。</p> <p><img src="/docs/quickStart/%E8%BF%9B%E5%85%A5%E9%A1%B9%E7%9B%AE.png" alt=""></p> <p><img src="/docs/quickStart/%E5%88%87%E6%8D%A2%E9%A1%B9%E7%9B%AE.png" alt=""></p> <h5 id="计算引擎"><a href="#计算引擎" class="header-anchor">#</a> <strong>计算引擎</strong></h5> <p><code>计算引擎</code>即运行的集群环境，比如yarn集群，需在nacos配置文件中配置，项目中要有关联的<code>计算引擎</code>，在开发作业时才能选择对应的引擎进行运行，具体可在<code>用户手册</code>的<code>引擎管理</code>中查看。</p> <h5 id="准备jar作业"><a href="#准备jar作业" class="header-anchor">#</a> <strong>准备jar作业</strong></h5> <p>首先先写dataStream流作业，写完后打jar包上传，这里以datagen输出到print控制台为例</p> <p>引入依赖</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;properties&gt;
+    &lt;maven.compiler.source&gt;8&lt;/maven.compiler.source&gt;
+    &lt;maven.compiler.target&gt;8&lt;/maven.compiler.target&gt;
+    &lt;flink.version&gt;1.14.3&lt;/flink.version&gt;
+    &lt;scala.binary.version&gt;2.11&lt;/scala.binary.version&gt;
+&lt;/properties&gt;
+
+&lt;dependencies&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.apache.flink&lt;/groupId&gt;
+        &lt;artifactId&gt;flink-table-api-java-bridge_${scala.binary.version}&lt;/artifactId&gt;
+        &lt;version&gt;${flink.version}&lt;/version&gt;
+        &lt;scope&gt;provided&lt;/scope&gt;
+    &lt;/dependency&gt;
+&lt;/dependencies&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><p>编写流作业代码</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>import org.apache.flink.api.java.utils.ParameterTool;
+import org.apache.flink.configuration.PipelineOptions;
+import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
+import org.apache.flink.table.api.bridge.java.StreamTableEnvironment;
+
+public class Demo03_DataGen_Print {
+
+    public static void main(String[] args) {
+    
+        //通过该方式获取高级配置定义的main参数
+        ParameterTool parameterTool = ParameterTool.fromArgs(args);
+        parameterTool.toMap().forEach((k, v) -&gt; {
+            //  System.out.println(k + &quot;:&quot; + v);
+        });
+        String jobName = parameterTool.get(&quot;main.param.pipeline.name&quot;,&quot;Demo03_DataGen_Print&quot;);
+        System.out.println(&quot;jobName = &quot; + jobName);
+        StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
+        StreamTableEnvironment tableEnv = StreamTableEnvironment.create(env);
+        env.setParallelism(1);
+        tableEnv.getConfig().getConfiguration().setString(PipelineOptions.NAME,jobName);
+        
+        String orderSql=&quot;CREATE TABLE order_info (\n&quot; +
+            &quot;    id INT,\n&quot; +        &quot;    user_id BIGINT,\n&quot; +
+            &quot;    total_amount DOUBLE,\n&quot; +
+            &quot;    create_time AS localtimestamp,\n&quot; +
+            &quot;    WATERMARK FOR create_time AS create_time\n&quot; +
+            &quot;) WITH (\n&quot; +
+                &quot;    'connector' = 'datagen',\n&quot; +
+                &quot;    'rows-per-second'='1',\n&quot; +
+                &quot;    'fields.id.kind'='sequence',\n&quot; +
+                &quot;    'fields.id.start'='1',\n&quot; +
+                &quot;    'fields.id.end'='1000000',\n&quot; +
+                &quot;    'fields.user_id.kind'='random',\n&quot; +
+                &quot;    'fields.user_id.min'='1',\n&quot; +
+                &quot;    'fields.user_id.max'='1000000',\n&quot; +
+                &quot;    'fields.total_amount.kind'='random',\n&quot; +
+                &quot;    'fields.total_amount.min'='1',\n&quot; +
+                &quot;    'fields.total_amount.max'='1000'\n&quot; +
+                &quot;)&quot;;
+                
+        String sinkSql=&quot;CREATE TABLE sink_order_info (\n&quot; +
+            &quot;    id INT,\n&quot; +        &quot;    user_id BIGINT,\n&quot; +
+            &quot;    total_amount DOUBLE,\n&quot; +
+            &quot;    create_time AS localtimestamp,\n&quot; +
+            &quot;    WATERMARK FOR create_time AS create_time\n&quot; +
+            &quot;) WITH (\n&quot; +
+            &quot;    'connector' = 'print'\n&quot; +
+            &quot;)&quot;;
+         
+        tableEnv.executeSql(orderSql);
+        tableEnv.executeSql(sinkSql);
+        tableEnv.executeSql(&quot;insert into sink_order_info select id,user_id,total_amount from order_info&quot;);
+        
+     }
+ }
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br></div></div><h3 id="步骤一-上传jar包"><a href="#步骤一-上传jar包" class="header-anchor">#</a> 步骤一：上传jar包</h3> <p>选择<code>实时开发</code>菜单中的<code>资源管理</code>，上传打包好的作业jar包，若使用同样的jar包可在原来的版本基础上新增一个版本。</p> <p><strong>jar包名称：</strong> 自定义名称</p> <p><strong>git_url：</strong> jar包所在的git地址</p> <p><strong>版本描述：</strong> 自定义描述</p> <p><img src="/docs/quickStart/%E4%B8%8A%E4%BC%A0jar.png" alt="fdfd5534244c174ee1f50beef7045987.png"></p> <h3 id="步骤二-创建jar作业"><a href="#步骤二-创建jar作业" class="header-anchor">#</a> 步骤二：创建jar作业</h3> <p>然后在作业开发中选择DS文件类型的作业，选择上传的jar包资源及版本，填写运行入口。</p> <p><strong>文件名称：</strong> 英文与数字组成不可包含空格特殊字符等</p> <p><strong>作业等级：</strong> 从p1到p4为从重要到不重要</p> <p><strong>文件类型：</strong> 选择DS即dataStream作业</p> <p><strong>选择jar包资源：</strong> 选择上传的jar包</p> <p><strong>选择jar包版本：</strong> 对应jar包的版本</p> <p><strong>Main-Class：</strong> 程序执行入口</p> <p><img src="/docs/quickStart/%E6%96%B0%E5%BB%BAjar%E4%BD%9C%E4%B8%9A.png" alt="37297992a211d375bf1d87f41c39b30c.png"></p> <h3 id="步骤三-发布jar作业"><a href="#步骤三-发布jar作业" class="header-anchor">#</a> 步骤三：发布jar作业</h3> <p>保存后可以看到根据作业生成的DAG图，可根据需要做一些参数配置</p> <p><strong>高级配置：</strong> 为flink作业运行时相关的一些参数</p> <p><strong>资源配置：</strong> 为作业所需资源的参数配置</p> <p><strong>DS配置：</strong> 为jar版本及main入口相关配置</p> <p><strong>版本信息：</strong> 为发布后生成的记录可以查看每次发布的差异，类似git</p> <p><strong>基础信息：</strong> 为作业的相关基础信息如作业名称，作业创建时间更新时间等</p> <p><img src="/docs/quickStart/%E5%8F%91%E5%B8%83jar.png" alt=""></p> <h3 id="步骤四-运行jar任务"><a href="#步骤四-运行jar任务" class="header-anchor">#</a> 步骤四：运行jar任务</h3> <p>在uat环境默认不用审批，若在prod环境则需要进行审批，在uat发布后可以<code>作业运维</code>看到发布的作业为<code>初始状态</code>，点击启动可以选择直接启动、从检查点启动、保存点启动。</p> <p><img src="/docs/quickStart/%E8%BF%90%E8%A1%8Cjar.png" alt="bfd7e2edf72ccdb8a2ec2a8b9f09d202.png"></p> <h3 id="步骤五-查看运行情况"><a href="#步骤五-查看运行情况" class="header-anchor">#</a> 步骤五：查看运行情况</h3> <p>启动后可以看到作业在<code>运行中</code>的状态，flink jar作业就启动起来了，可点击右侧<code>flink_ui</code>中查看运行状态。
+<img src="/docs/quickStart/%E8%BF%90%E8%A1%8C%E4%B8%ADjar.png" alt="bfd7e2edf72ccdb8a2ec2a8b9f09d202.png"> <img src="/docs/quickStart/jar_flink_ui.png" alt=""></p></div></div> <!----> <div class="page-edit"><!----> <!----> <!----></div> <div class="page-nav-wapper"><div class="page-nav-centre-wrap"><a href="/pages/e71ad9/" class="page-nav-centre page-nav-centre-prev"><div class="tooltip">开发 SQL 作业</div></a> <a href="/pages/8e9213/" class="page-nav-centre page-nav-centre-next"><div class="tooltip">高级配置</div></a></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/pages/e71ad9/" class="prev">开发 SQL 作业</a></span> <span class="next"><a href="/pages/8e9213/">高级配置</a>→
+      </span></p></div></div></div> <!----></main></div> <div class="footer"><!----> 
+  Theme by
+  <a href="https://github.com/xugaoyi/vuepress-theme-vdoing" target="_blank" title="本站主题">Vdoing</a> 
+    | Copyright © 2023-2023
+    <span></span></div> <div class="buttons"><div title="返回顶部" class="button blur go-to-top iconfont icon-fanhuidingbu" style="display:none;"></div> <div title="去评论" class="button blur go-to-comment iconfont icon-pinglun" style="display:none;"></div> <div title="主题模式" class="button blur theme-mode-but iconfont icon-zhuti"><ul class="select-box" style="display:none;"><li class="iconfont icon-zidong">
+          跟随系统
+        </li><li class="iconfont icon-rijianmoshi">
+          浅色模式
+        </li><li class="iconfont icon-yejianmoshi">
+          深色模式
+        </li><li class="iconfont icon-yuedu">
+          阅读模式
+        </li></ul></div></div> <!----> <!----> <!----></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.14ccb522.js" defer></script><script src="/assets/js/2.24ca2cad.js" defer></script><script src="/assets/js/21.55ae073c.js" defer></script>
+  </body>
+</html>

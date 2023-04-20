@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>赤兔实时计算平台</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    <link rel="icon" href="/logo/small.png">
+    <script>
+  if(window.location.host.indexOf('localhost') < 0) {
+    var appKey = 'r336dqylqlyt6aqotj8u0771';
+    var logUrl = 'kye-log-sdk.ky-express.com';
+    var jsUrl = 'https://bg-prd-cos-bdp-1257092428.cos.ap-guangzhou.myqcloud.com/bigdata/kyelog/aplus_web_v9_md5_c1f7.js';
+    
+    (function (w, d, s, q) {
+    w[q] = w[q] || [];
+    var f = d.getElementsByTagName(s)[0], j = d.createElement(s);
+    j.async = true;
+    j.id = 'beacon-aplus';
+    j.src = jsUrl;
+    f.parentNode.insertBefore(j, f)
+    })(window, document, 'script', 'aplus_queue')
+    //集成应用的appKey
+    aplus_queue.push({ action: 'aplus.setMetaInfo', arguments: ['appKey', appKey] })
+    //如果是私有云部署还需要在上面那段JS后面紧接着添加日志域名埋点
+    //通常私有云日志服务端域名类似于：quickaplus-web-api.xxx.com.cn, 具体域名要找交付同学要
+    aplus_queue.push({ action: 'aplus.setMetaInfo', arguments: ['aplus-rhost-v', logUrl] })
+    aplus_queue.push({ action: 'aplus.setMetaInfo', arguments: ['DEBUG', true] })
+    //开启全埋点
+    aplus_queue.push({
+    action: 'aplus.setMetaInfo',
+    arguments: ['aplus-autotrack-enabled', true]
+    });
+    // 全埋点配置
+    aplus_queue.push({
+    action: 'aplus.setMetaInfo',
+    arguments: [
+      'aplus-autotrack-config',
+      {
+        collect_tags: {
+          li: true,
+          img: true,
+          div: true,
+          span: true,
+          i: true,
+          svg: true,
+          path: true,
+          p: true,
+          td: true
+        },
+        collect_input: true, // 采集input框输入内容
+        element_capture_enable: true // 全埋点控件点击支持事件捕获模式，默认为冒泡模式，值为false
+      }
+    ]
+    })
+    //apm
+    void (function (e, t, n, a, o, i, m) {
+    (e._um_apm_namespace = o),
+      (e[o] =
+        e[o] ||
+        function () {
+          (e[o].q = e[o].q || []).push(arguments);
+        }),
+      (e[o].l = e[o].l || +new Date()),
+      (i = t.createElement(n)),
+      i.setAttribute('crossorigin', ''),
+      (i.src = a),
+      (m = t.getElementsByTagName(n)[0]),
+      m.parentNode.insertBefore(i, m);
+    })(window, document, "script", "https://bg-prd-cos-bdp-1257092428.cos.ap-guangzhou.myqcloud.com/bigdata/kyelog/apm_v2_md5_1b26.js", "_apm");
+    _apm('create', {
+    pid: appKey,
+    dsn: 'https://' + logUrl,
+    pageFilter: { mode: 'ignore', rules: [] },
+    });
+  }
+ </script>
+    <meta name="description" content="赤兔实时计算平台是大数据产品生态体系的实时化分析利器，是基于 Apache Flink 构建的具备一站开发、无缝连接、亚秒延时、低廉成本、安全稳定等特点的企业级实时大数据计算平台。平台提供SQL化IDE开发环境，任务运维发布流程，任务监控体系，多环境隔离转环境支持，多集群管理等多种企业级特性支持，帮助企业加速进行实时应用开发与实践, 加快实时化数字化的建设进程。">
+    <meta name="keywords" content="chitu-sdp,chitu-sdp-flink,chitu-sdp-provider,赤兔实时计算,赤兔实时计算文档">
+    <meta name="theme-color" content="#11a8cd">
+    <meta name="viewport" content="width=device-width,initial-sacle=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
+    
+    <link rel="preload" href="/assets/css/0.styles.eb8041ce.css" as="style"><link rel="preload" href="/assets/js/app.14ccb522.js" as="script"><link rel="preload" href="/assets/js/3.f609e95a.js" as="script"><link rel="prefetch" href="/assets/js/10.57027684.js"><link rel="prefetch" href="/assets/js/11.7c227400.js"><link rel="prefetch" href="/assets/js/12.4a1ae251.js"><link rel="prefetch" href="/assets/js/13.7ed105b5.js"><link rel="prefetch" href="/assets/js/14.40c985fa.js"><link rel="prefetch" href="/assets/js/15.ecc31e56.js"><link rel="prefetch" href="/assets/js/16.94d7547d.js"><link rel="prefetch" href="/assets/js/17.2999f2da.js"><link rel="prefetch" href="/assets/js/18.6087cb46.js"><link rel="prefetch" href="/assets/js/19.ef03d88b.js"><link rel="prefetch" href="/assets/js/2.24ca2cad.js"><link rel="prefetch" href="/assets/js/20.a2f07415.js"><link rel="prefetch" href="/assets/js/21.55ae073c.js"><link rel="prefetch" href="/assets/js/22.742c2683.js"><link rel="prefetch" href="/assets/js/23.ea29b97b.js"><link rel="prefetch" href="/assets/js/24.247c6f02.js"><link rel="prefetch" href="/assets/js/25.471decef.js"><link rel="prefetch" href="/assets/js/26.aea1d6df.js"><link rel="prefetch" href="/assets/js/27.41ead25d.js"><link rel="prefetch" href="/assets/js/28.8e5c837f.js"><link rel="prefetch" href="/assets/js/29.9d66d366.js"><link rel="prefetch" href="/assets/js/30.fd4b127f.js"><link rel="prefetch" href="/assets/js/31.3e5abe6b.js"><link rel="prefetch" href="/assets/js/32.fd952816.js"><link rel="prefetch" href="/assets/js/4.2cd2aecb.js"><link rel="prefetch" href="/assets/js/5.245d6ccc.js"><link rel="prefetch" href="/assets/js/6.782f9449.js"><link rel="prefetch" href="/assets/js/7.26cec53d.js"><link rel="prefetch" href="/assets/js/8.4d3edb0a.js"><link rel="prefetch" href="/assets/js/9.dc5c466f.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.eb8041ce.css">
+  </head>
+  <body class="theme-mode-light">
+    <div id="app" data-server-rendered="true"><div class="layout-container" data-v-13e67619><div class="body-container" data-v-13e67619><div class="header-container flex" data-v-13e67619><div class="header-container__left" data-v-13e67619><div class="header-container__left-logo" data-v-13e67619><img src="/image/logo.png" alt="赤兔实时计算平台" data-v-13e67619></div></div> <div class="header-container__center flex-1" data-v-13e67619><ul class="menu-list flex-between" data-v-13e67619><li class="menu-list__item active" data-v-13e67619>
+            首页
+          </li><li class="menu-list__item" data-v-13e67619>
+            文档
+          </li><li class="menu-list__item" data-v-13e67619>
+            FAQ
+          </li><li class="menu-list__item" data-v-13e67619>
+            GitHub
+          </li></ul></div> <div class="header-container__right" data-v-13e67619><div class="btn" data-v-13e67619>体验Demo</div></div></div> <div class="main-container" data-v-13e67619><div class="introduce-container flex" data-v-13e67619><div class="introduce-container__left flex-1" data-v-13e67619><div class="title" data-v-13e67619>赤兔实时计算平台</div> <div class="info" data-v-13e67619>
+            基于 Apache Flink 构建的企业级、一站式、高性能、低门槛大数据实时计算平台，广泛适用于流式数据应用开发场景。
+          </div> <div class="btns flex" data-v-13e67619><div class="btns__btn btn--left pointer" data-v-13e67619>体验Demo</div> <div class="btns__btn btn--right pointer ml-20" data-v-13e67619>GitHub</div></div></div> <div class="introduce-container__right" data-v-13e67619><div class="player" data-v-13e67619><d-player options="[object Object]" style="width:100%;height:100%;display:block;" data-v-13e67619></d-player> <img src="/image/player-pic.png" alt class="player-img" data-v-13e67619> <i class="icon-play" data-v-13e67619></i></div></div></div> <div class="banner-container" data-v-13e67619><div class="banner-list flex" data-v-13e67619><div class="banner-list__item flex-center" data-v-13e67619><img src="/image/check.png" alt data-v-13e67619>
+            一站式的流任务管理平台
+          </div><div class="banner-list__item flex-center" data-v-13e67619><img src="/image/check.png" alt data-v-13e67619>
+            一系列开箱即用的 Connectors
+          </div><div class="banner-list__item flex-center" data-v-13e67619><img src="/image/check.png" alt data-v-13e67619>
+            支持多环境切换
+          </div><div class="banner-list__item flex-center" data-v-13e67619><img src="/image/check.png" alt data-v-13e67619>
+            支持 Yarn / K8s 多集群部署
+          </div><div class="banner-list__item flex-center" data-v-13e67619><img src="/image/check.png" alt data-v-13e67619>
+            支持 Flink SQL 和 Flink DataStream 任务运行
+          </div></div> <div class="mask-warp" data-v-13e67619><div class="mask-warp__before" data-v-13e67619></div> <div class="mask-warp__mask-content" data-v-13e67619></div> <div class="mask-warp__after" data-v-13e67619></div></div></div> <div data-wow-duration="1.5s" class="application-container wow bounceInUp" data-v-13e67619><div class="common-article__title" data-v-13e67619>热门应用场景</div> <div class="application-content flex" data-v-13e67619><div class="flex-1 pd-60" data-v-13e67619><div class="common-content__title text-r" data-v-13e67619>事件驱动应用</div> <img src="/image/img_sjqdyy.png" alt class="application-content__phone-img" data-v-13e67619> <div class="common-content__text text-indent" data-v-13e67619>事件驱动应用是对一系列订阅事件进行处理或作出响应的系统。事件驱动应用通常需要依赖内部状态，例如欺诈检测、风控系统、运维异常检测系统等。当用户行为触发某些风险控制点时，系统会捕获这个事件，并根据用户当前和之前的行为进行分析，决定是否对用户进行风险控制。</div></div> <div class="flex-1" data-v-13e67619><img src="/image/img_sjqdyy.png" alt class="application-content__pc-img" data-v-13e67619></div></div> <div class="application-content flex" data-v-13e67619><div class="flex-1" data-v-13e67619><img src="/image/img_sssjfx.png" alt class="application-content__pc-img" data-v-13e67619></div> <div class="flex-1 pd-60" data-v-13e67619><div class="common-content__title" data-v-13e67619>实时数据分析</div> <img src="/image/img_sssjfx.png" alt class="application-content__phone-img" data-v-13e67619> <div class="common-content__text text-indent" data-v-13e67619>传统数据仓库解决方案基于离线批量采集及分析，无法做到实时的数据分析功能。流式查询或应用会接入实时事件流，随着事件消费持续产生和更新结果。这些结果数据可能会写入外部数据库系统或以内部状态的形式维护。仪表展示应用可以相应地从外部数据库读取数据或直接查询应用的内部状态。</div></div></div> <div class="application-content flex" data-v-13e67619><div class="flex-1 pd-60" data-v-13e67619><div class="common-content__title text-r" data-v-13e67619>实时ETL</div> <img src="/image/img_ssetl.png" alt class="application-content__phone-img" data-v-13e67619> <div class="common-content__text text-indent" data-v-13e67619>ETL 是将业务系统的数据经过抽取、清洗转换之后加载到目的端的过程，目的是将企业中的分散、零乱、标准不统一的数据整合到一起，为企业的决策提供分析依据。</div></div> <div class="flex-1" data-v-13e67619><img src="/image/img_ssetl.png" alt class="application-content__pc-img" data-v-13e67619></div></div></div> <div data-wow-duration="1.5s" class="feature-container wow bounceInUp" data-v-13e67619><div class="common-article__title" data-v-13e67619>亮 点</div> <div class="feature-content flex-center" data-v-13e67619><div class="feature-content__left" data-v-13e67619><div class="feature-content__left-content" data-v-13e67619><img src="/image/icon_qtgyzs.png" alt data-v-13e67619> <div class="common-content__title text-r" data-v-13e67619>全托管一站式</div> <div class="common-content__text" data-v-13e67619>提供 Flink SQL/JAR 任务开发、上线、运维、监控一体化 开箱即用，免运维</div></div> <div class="feature-content__left-content" data-v-13e67619><img src="/image/icon_dhj.png" alt data-v-13e67619> <div class="common-content__title text-r" data-v-13e67619>多环境</div> <div class="common-content__text text-r" data-v-13e67619>支持测试/生产环境切换及转环境，多维度进行资源环境的隔离</div></div></div> <div class="feature-content__center" data-v-13e67619><img src="/image/img_ldpt.png" alt data-v-13e67619></div> <div class="feature-content__right" data-v-13e67619><div class="feature-content__right-content" data-v-13e67619><img src="/image/icon_yys.png" alt data-v-13e67619> <div class="common-content__title" data-v-13e67619>云原生</div> <div class="common-content__text" data-v-13e67619>资源调度支持 K8S，资源弹性化，数据云上化</div></div> <div class="content" data-v-13e67619><img src="/image/icon_yyx.png" alt data-v-13e67619> <div class="common-content__title" data-v-13e67619>易用性</div> <div class="common-content__text" data-v-13e67619>Flink 元表自动生成、支持 Flink 多版本、自定义配置监控告警规则等</div></div></div></div></div> <div data-wow-duration="1.5s" class="function-phone-container wow bounceInUp" data-v-13e67619><div class="common-article__title" data-v-13e67619>功 能</div> <div class="function-content flex" data-v-13e67619><div class="function-content__item" data-v-13e67619><img src="/image/img_tgsql.png" alt data-v-13e67619> <div data-v-13e67619><div class="common-content__title" data-v-13e67619>通过SQL或代码开发实时任务</div> <img src="/image/func_banner_1.png" alt class="function-content__item-img" data-v-13e67619> <div class="common-content__text" data-v-13e67619>强大的 IDE 套件，支持 jar、SQL开发模式，支持拖拽、模块化、多语言等特性，提供多种调试方式，支持任务血缘、版本管理等。</div></div></div> <div class="function-content__item" data-v-13e67619><img src="/image/img_tgqyjgnzc.png" alt data-v-13e67619> <div data-v-13e67619><div class="common-content__title" data-v-13e67619>提供企业级功能支持</div> <img src="/image/func_banner_2.png" alt class="function-content__item-img" data-v-13e67619> <div class="common-content__text" data-v-13e67619>提供多环境、多集群、多版本的企业级功能支持。</div></div></div> <div class="function-content__item" data-v-13e67619><img src="/image/img_qddywjk.png" alt data-v-13e67619> <div data-v-13e67619><div class="common-content__title" data-v-13e67619>强大的运维监控告警支持</div> <img src="/image/func_banner_3.png" alt class="function-content__item-img" data-v-13e67619> <div class="common-content__text" data-v-13e67619>提供任务的全生命周期事件管理，支持任务运行状态各种维度 metrics 的汇总与展示，实现问题快速排查和恢复，保障 SLA。</div></div></div> <div class="function-content__item" data-v-13e67619><img src="/image/img_wsdrwfb.png" alt data-v-13e67619> <div data-v-13e67619><div class="common-content__title" data-v-13e67619>完善的任务发布流程</div> <img src="/image/func_banner_4.png" alt class="function-content__item-img" data-v-13e67619> <div class="common-content__text" data-v-13e67619>提供开发/上线模式，以实现开发/运维隔离，保障开发工作不直接影响线上任务，支持快照版本管理；通过调试功能为开发者模拟低成本开发集群，在不引入额外成本前提下全面保障线上安全。</div></div></div></div></div> <div data-wow-duration="1.5s" class="function-pc-container wow bounceInUp" data-v-13e67619><div class="common-article__title" data-v-13e67619>功 能</div> <div class="content-list" style="display:;" data-v-13e67619><div class="content-list_title" data-v-13e67619>
+            通过SQL或代码开发实时任务
+          </div> <div class="content-list_text" data-v-13e67619><span data-v-13e67619>强大的 IDE 套件，支持 jar、SQL开发模式，</span></div><div class="content-list_text" data-v-13e67619><span data-v-13e67619> 支持拖拽、模块化、多语言等特性，。</span></div><div class="content-list_text" data-v-13e67619><span data-v-13e67619> 提供多种调试方式，支持任务血缘、版本管理等。</span></div></div><div class="content-list" style="display:none;" data-v-13e67619><div class="content-list_title" data-v-13e67619>
+            提供企业级功能支持
+          </div> <div class="content-list_text" data-v-13e67619><span data-v-13e67619>提供多环境、多集群、</span></div><div class="content-list_text" data-v-13e67619><span data-v-13e67619>多版本的企业级功能支持。</span></div><div class="content-list_text" data-v-13e67619><span data-v-13e67619>&ensp;</span></div></div><div class="content-list" style="display:none;" data-v-13e67619><div class="content-list_title" data-v-13e67619>
+            强大的运维监控告警支持
+          </div> <div class="content-list_text" data-v-13e67619><span data-v-13e67619>提供任务的全生命周期事件管理，</span></div><div class="content-list_text" data-v-13e67619><span data-v-13e67619>支持任务运行状态各种维度 metrics 的汇总与展示，</span></div><div class="content-list_text" data-v-13e67619><span data-v-13e67619>实现问题快速排查和恢复，保障 SLA。</span></div></div><div class="content-list" style="display:none;" data-v-13e67619><div class="content-list_title" data-v-13e67619>
+            完善的任务发布流程
+          </div> <div class="content-list_text" data-v-13e67619><span data-v-13e67619>提供开发/上线模式，以实现开发/运维隔离，</span></div><div class="content-list_text" data-v-13e67619><span data-v-13e67619>保障开发工作不直接影响线上任务，支持快照版本管理，</span></div><div class="content-list_text" data-v-13e67619><span data-v-13e67619>通过调试功能为开发者模拟低成本开发集群，在不引入额外成本前提下全面保障线上安全。</span></div></div> <div class="banner-list" data-v-13e67619><div class="el-carousel el-carousel--horizontal" data-v-13e67619><div class="el-carousel__container" style="height:592px;"><button type="button" class="el-carousel__arrow el-carousel__arrow--left" style="display:none;"><i class="el-icon-arrow-left"></i></button><button type="button" class="el-carousel__arrow el-carousel__arrow--right" style="display:none;"><i class="el-icon-arrow-right"></i></button><div class="el-carousel__item" style="transform:translateX(0px) scale(1);ms-transform:translateX(0px) scale(1);webkit-transform:translateX(0px) scale(1);display:none;" data-v-13e67619><!----><img src="/image/func_banner_1.png" alt="" data-v-13e67619></div><div class="el-carousel__item" style="transform:translateX(0px) scale(1);ms-transform:translateX(0px) scale(1);webkit-transform:translateX(0px) scale(1);display:none;" data-v-13e67619><!----><img src="/image/func_banner_2.png" alt="" data-v-13e67619></div><div class="el-carousel__item" style="transform:translateX(0px) scale(1);ms-transform:translateX(0px) scale(1);webkit-transform:translateX(0px) scale(1);display:none;" data-v-13e67619><!----><img src="/image/func_banner_3.png" alt="" data-v-13e67619></div><div class="el-carousel__item" style="transform:translateX(0px) scale(1);ms-transform:translateX(0px) scale(1);webkit-transform:translateX(0px) scale(1);display:none;" data-v-13e67619><!----><img src="/image/func_banner_4.png" alt="" data-v-13e67619></div></div><ul class="el-carousel__indicators el-carousel__indicators--horizontal"></ul></div></div></div></div></div> <div class="footer-container" data-v-13e67619><div class="footer-content" data-v-13e67619><div class="content-title" data-v-13e67619><div class="item" data-v-13e67619><img src="/image/footer-logo.png" alt style="width:100%" data-v-13e67619></div> <div class="item pc-item" data-v-13e67619>Resource</div> <div class="item pc-item" data-v-13e67619>更多</div> <div class="item pc-item" data-v-13e67619>关注</div></div> <div class="content-item" data-v-13e67619><div class="item pc-item" data-v-13e67619><div data-v-13e67619></div></div> <div class="item pc-item" data-v-13e67619><div class="text pointer active-hover" data-v-13e67619>文档</div> <div class="text pointer active-hover" data-v-13e67619>FAQ</div></div> <div class="item pc-item" data-v-13e67619><div class="text pointer active-hover" data-v-13e67619>Github</div> <div class="text pointer active-hover" data-v-13e67619>体验demo</div></div> <div class="item" data-v-13e67619><div class="text qrcode-list flex" data-v-13e67619><div class="mr-16" data-v-13e67619><img src="/image/zx.png" alt class="icon-qrcode" data-v-13e67619> <div data-v-13e67619>咨询</div></div> <div data-v-13e67619><img src="/image/gzh.png" alt class="icon-qrcode" data-v-13e67619> <div data-v-13e67619>公众号</div></div></div></div></div></div></div> <div class="sidebar-container" data-v-13e67619><div class="sidebar-list" data-v-13e67619><div class="sidebar-item" data-v-13e67619><div class="el-tooltip qrcode-content" data-v-13e67619 data-v-13e67619><svg t="1678976239134" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4289" width="24" height="24" class="icon" data-v-13e67619><path d="M275.413333 810.666667L85.333333 960V170.666667a42.666667 42.666667 0 0 1 42.666667-42.666667h768a42.666667 42.666667 0 0 1 42.666667 42.666667v597.333333a42.666667 42.666667 0 0 1-42.666667 42.666667H275.413333zM298.666667 426.666667a213.333333 213.333333 0 0 0 426.666666 0h-85.333333a128 128 0 0 1-256 0H298.666667z" p-id="4290" data-v-13e67619></path></svg>
+            咨询
+          </div></div> <div class="sidebar-item" data-v-13e67619><div class="el-tooltip qrcode-content" data-v-13e67619 data-v-13e67619><svg t="1678976116780" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4143" width="24" height="24" class="icon" data-v-13e67619><path d="M792.490667 585.002667a38.826667 38.826667 0 0 0 38.314666-38.314667c0-21.248-17.024-38.314667-38.314666-38.314667s-38.314667 17.066667-38.314667 38.314667c0 21.333333 17.066667 38.314667 38.314667 38.314667z m-188.8 0a38.826667 38.826667 0 0 0 38.314666-38.314667c0-21.248-17.066667-38.314667-38.314666-38.314667-21.333333 0-38.314667 17.066667-38.314667 38.314667 0 21.333333 17.024 38.314667 38.314667 38.314667z m280.192 215.04a14.805333 14.805333 0 0 0-7.338667 15.786666c0 2.048 0 4.138667 1.066667 6.272 4.181333 17.792 12.544 46.122667 12.544 47.189334 0 3.114667 1.066667 5.205333 1.066666 7.338666a9.386667 9.386667 0 0 1-9.429333 9.386667c-2.133333 0-3.157333-1.024-5.248-2.048l-61.824-35.669333a34.090667 34.090667 0 0 0-14.677333-4.181334c-3.114667 0-6.272 0-8.362667 1.024-29.354667 8.405333-59.733333 12.586667-92.202667 12.586667-156.16 0-281.898667-104.832-281.898666-234.88 0-130.005333 125.738667-234.88 281.898666-234.88 156.117333 0 281.856 104.874667 281.856 234.88 0 70.272-37.717333 134.229333-97.450666 177.237333zM711.381333 345.557333a388.48 388.48 0 0 0-11.946666-0.213333c-178.090667 0-324.522667 122.026667-324.522667 277.546667 0 23.637333 3.413333 46.506667 9.728 68.266666h-3.797333a425.088 425.088 0 0 1-110.250667-15.701333c-3.157333-1.066667-6.314667-1.066667-9.472-1.066667a35.498667 35.498667 0 0 0-17.834667 5.248l-74.581333 42.88c-2.133333 1.066667-4.224 2.133333-6.314667 2.133334a11.648 11.648 0 0 1-11.52-11.52c0-3.157333 1.024-5.248 2.090667-8.405334 1.024-1.024 10.496-35.584 15.744-56.490666 0-2.133333 1.024-5.248 1.024-7.338667a23.722667 23.722667 0 0 0-9.429333-18.858667C87.808 570.709333 42.666667 494.336 42.666667 409.514667 42.666667 253.653333 194.986667 128 381.866667 128c160.64 0 295.68 92.544 329.514666 217.514667z m-219.904 17.834667c24.448 0 43.776-20.352 43.776-43.776 0-24.448-19.328-43.776-43.776-43.776s-43.776 19.328-43.776 43.776 19.328 43.776 43.776 43.776z m-224.426666 0c24.448 0 43.818667-20.352 43.818666-43.776 0-24.448-19.370667-43.776-43.818666-43.776-24.405333 0-43.776 19.328-43.776 43.776s19.370667 43.776 43.776 43.776z" p-id="4144" data-v-13e67619></path></svg>
+            公众号
+          </div></div> <div class="sidebar-item" data-v-13e67619><div class="qrcode-content" data-v-13e67619><svg t="1678976260158" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4435" width="24" height="24" class="icon" data-v-13e67619><path d="M128 128h768a42.666667 42.666667 0 0 1 42.666667 42.666667v682.666666a42.666667 42.666667 0 0 1-42.666667 42.666667H128a42.666667 42.666667 0 0 1-42.666667-42.666667V170.666667a42.666667 42.666667 0 0 1 42.666667-42.666667z m725.333333 298.666667H170.666667v384h682.666666v-384zM213.333333 256v85.333333h85.333334V256H213.333333z m170.666667 0v85.333333h85.333333V256H384z" p-id="4436" data-v-13e67619></path></svg>
+          Demo
+        </div></div></div></div> <!----> <div class="video-area-container" style="display:none;" data-v-13e67619><div class="video__mask" data-v-13e67619></div> <div class="video__wrap" data-v-13e67619><video src="" controls="controls" disablePictureInPicture controlsList="nodownload" data-v-13e67619></video> <i class="icon-close" data-v-13e67619></i></div></div></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.14ccb522.js" defer></script><script src="/assets/js/3.f609e95a.js" defer></script>
+  </body>
+</html>
